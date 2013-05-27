@@ -92,7 +92,9 @@ module Spree
           if state
             order_ship_address.state = state
           else
-            order_ship_address.state_name = ship_address["state"]
+            # HACK NOT COMPLETE
+            order_ship_address.state = @order.ship_address.state
+            #_name = ship_address["state"]
           end
           order_ship_address.save!
 
